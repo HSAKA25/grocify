@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Grocify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1>🛒 Grocify</h1>
+      <p class="subtitle">Log in to manage your groceries</p>
+
+      <div id="error" class="alert alert-error hidden"></div>
+
+      <form id="loginForm">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="••••••" required />
+
+        <button class="btn btn-primary btn-block" type="submit">Login</button>
+      </form>
+
+      <p class="auth-switch">No account? <a href="register.html">Create one</a></p>
+      <p class="demo-hint">Demo login: <b>demo@grocery.com</b> / <b>demo123</b> (after seeding)</p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    // If already logged in, skip straight to the dashboard.
+    if (getUser()) window.location.href = "dashboard.html";
+
+    const errorBox = document.getElementById("error");
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorBox.classList.add("hidden");
+      try {
+        const user = await api.post("/auth/login", {
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        });
+        saveUser(user);
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        errorBox.textContent = err.message;
+        errorBox.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

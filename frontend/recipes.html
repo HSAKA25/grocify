@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes — Grocify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>" />
+</head>
+<body>
+  <div id="nav"></div>
+  <div class="container">
+    <h2 class="page-title">🍳 Recipe Ideas</h2>
+
+    <div class="card">
+      <p class="muted">
+        Generate recipe ideas from what's already in your inventory —
+        a good way to use up items before they expire.
+      </p>
+      <button class="btn btn-primary" id="generateBtn">✨ Generate Recipes</button>
+    </div>
+
+    <div id="recipeList"></div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/recipes.js"></script>
+</body>
+</html>

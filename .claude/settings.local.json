@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /tmp/server_final.log)",
+      "Read(//private/tmp/**)",
+      "Bash(mysql --version)",
+      "Bash(brew services *)"
+    ]
+  }
+}

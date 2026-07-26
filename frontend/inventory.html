@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory — Grocify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>" />
+</head>
+<body>
+  <div id="nav"></div>
+  <div class="container">
+    <h2 class="page-title">Inventory</h2>
+    <div id="error" class="alert alert-error hidden"></div>
+
+    <div class="card">
+      <h3 id="formTitle">➕ Add Item</h3>
+      <form class="item-form" id="itemForm">
+        <input id="name" placeholder="Item name" required />
+        <select id="category">
+          <option>Dairy</option><option>Produce</option><option>Meat</option>
+          <option>Grains</option><option>Beverages</option><option>Snacks</option>
+          <option>Frozen</option><option>Household</option>
+          <option selected>Other</option>
+        </select>
+        <div class="qty-field">
+          <input id="quantity" type="number" min="0" step="1" placeholder="Qty" value="1" />
+          <div class="qty-quick" id="qtyQuick"></div>
+        </div>
+        <select id="unit"></select>
+        <div class="price-field">
+          <input id="price" type="number" min="0" step="any" placeholder="Price" value="0" />
+          <small class="price-unit" id="priceUnitLabel">per pcs</small>
+        </div>
+        <input id="expiry_date" type="date" required />
+        <button class="btn btn-primary" type="submit" id="submitBtn">Add</button>
+        <button class="btn btn-outline hidden" type="button" id="cancelBtn">Cancel</button>
+      </form>
+      <p class="form-hint" id="valueHint"></p>
+    </div>
+
+    <input class="search" id="search" placeholder="🔍 Search items..." />
+
+    <div class="card">
+      <div id="tableWrap"><p class="muted">Loading...</p></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/units.js"></script>
+  <script src="js/inventory.js"></script>
+</body>
+</html>
