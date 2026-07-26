@@ -192,3 +192,4 @@ when an item will run out from past usage; family/household sharing; and a month
 expense report exportable as PDF.
 
 Happy building! 🛒
+# grocify
