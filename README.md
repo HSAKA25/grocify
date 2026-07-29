@@ -37,7 +37,7 @@ This README is written for **beginners** — follow it top to bottom.
 
 A code editor like **VS Code** (https://code.visualstudio.com) is recommended.
 
----
+----
 
 ## 📁 Project structure
 
